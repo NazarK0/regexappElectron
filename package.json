@@ -1,0 +1,54 @@
+{
+  "name": "my-electron-vue-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "background.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "publish:osx": "yarn electron:build -p always",
+    "publish:win": "yarn electron:build -- --win  --x64 --ia32 -p always",
+    "publish:linux": "yarn electron:build -- --linux -p always",
+    "publish:all": "yarn run publish:osx && yarn run publish:win && yarn run publish:linux",
+    "build:osx": "yarn electron:build -p never",
+    "build:win": "yarn electron:build -p never -- --win  --x64 --ia32",
+    "build:linux": "yarn electron:build -p never -- --linux",
+    "build:all": "yarn run build:osx && yarn run build:win && yarn run build:linux",
+    "electron:keypair": "node generateKeypair.js",
+    "electron:license": "node generateLicense.js",
+    "electron:icon": "electron-icon-builder --input=./appIcon/icon.png --output=./build --flatten",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "fix:style": "eslint --fix ./src/*.*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "update-electron-app": "^1.5.0",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.5.4",
+    "@vue/cli-plugin-eslint": "^4.5.4",
+    "@vue/cli-service": "^4.5.4",
+    "babel-eslint": "^10.1.0",
+    "electron": "^10.1.1",
+    "electron-devtools-installer": "^3.1.1",
+    "eslint": "^7.8.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "vue-cli-plugin-electron-builder": "^2.0.0-rc.4",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
